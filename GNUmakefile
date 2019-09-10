@@ -61,6 +61,26 @@ push-manifest: manifest
 
 push: push-manifest
 
+# Easy creation of new tags and manifests, e.g. to create release1:
+# $ make manifest-release1 # locally
+# $ make push-manifest-release1 # pushed to docker hub
+# Tags will be created for each architecture
+imgtag-%:
+	for arch in $(ARCHITECTURES); do \
+		docker tag $(IMAGE_NAME):latest-$$arch $(IMAGE_NAME):$*-$$arch ; \
+	done
+push-imgtag-%: imgtag-%
+	for arch in $(ARCHITECTURES); do \
+		docker push $(IMAGE_NAME):$*-$$arch ; \
+	done
+manifest-%: push-imgtag-%
+	env DOCKER_CLI_EXPERIMENTAL=enabled \
+		docker manifest create --amend $(IMAGE_NAME):$* \
+			$(addprefix $(IMAGE_NAME):$*-,$(ARCHITECTURES))
+push-manifest-%: manifest-%
+	env DOCKER_CLI_EXPERIMENTAL=enabled \
+		docker manifest push --purge $(IMAGE_NAME):$*
+
 distclean:
 	$(RM) $(DOCKERFILES)
 
