@@ -8,8 +8,8 @@ Currently it can monitor containers based on their name only.
 
 ## Information
 
-* [Docker Hub (outlyernet/reaper-nigromancer)](https://hub.docker.com/r/outlyernet/reaper-nigromancer/).
-* [GitHub (outlyer-net/docker-reaper-nigromancer)](https://github.com/outlyer-net/docker-reaper-nigromancer)
+* [Docker Hub (outlyernet/reaper-nigromancer)][dockerhub]
+* [GitHub (outlyer-net/docker-reaper-nigromancer)][github]
 
 ## Usage
 
@@ -30,4 +30,9 @@ Currently the image found on Docker Hub supports the AMD64, ARM v7 and ARM v8 (i
 
 ## References
 
-This container was inspired by [docker-autoheal](https://github.com/willfarrell/docker-autoheal).
+This container was inspired by [docker-autoheal].
+
+[microbadger]: https://microbadger.com/images/outlyernet/reaper-nigromancer
+[docker-autoheal]: https://github.com/willfarrell/docker-autoheal
+[dockerhub]: https://hub.docker.com/r/outlyernet/reaper-nigromancer/
+[github]: https://github.com/outlyer-net/docker-reaper-nigromancer
