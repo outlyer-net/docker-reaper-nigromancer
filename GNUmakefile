@@ -8,12 +8,13 @@ IMAGE_NAME=outlyernet/reaper-nigromancer
 
 POST_BUILD_ACTION= # --load not supported with manifests
 TAG=latest
+REGISTRY=docker.io
 
 build: prepare
 	docker buildx build \
 		--platform linux/amd64,linux/386,linux/arm/v7,linux/arm64/v8 \
 		$(POST_BUILD_ACTION) \
-		-t $(IMAGE_NAME):$(TAG) .
+		-t $(REGISTRY)/$(IMAGE_NAME):$(TAG) .
 
 prepare:
 	@# Create the builder, multiarch requires one to be created
