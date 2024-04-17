@@ -4,7 +4,8 @@ A very simplistic Docker container that monitors a set of containers and restart
 
 Currently it can monitor containers based on their name only.
 
-[![Image Size](https://images.microbadger.com/badges/image/outlyernet/reaper-nigromancer.svg)][microbadger]
+![Docker Image Size](https://img.shields.io/docker/image-size/outlyernet/reaper-nigromancer)
+
 
 ## Information
 
@@ -26,7 +27,7 @@ Let's say we want to monitor containers `some-app` and `some-server`. Create the
 
 ## Architecture support
 
-Currently the image found on Docker Hub supports the AMD64, ARM v7 and ARM v8 (i.e. 64 bit ARM).
+Currently the image found on Docker Hub supports the AMD64, i386, ARM v7 and ARM v8 (i.e. 64 bit ARM).
 
 ## References
 
